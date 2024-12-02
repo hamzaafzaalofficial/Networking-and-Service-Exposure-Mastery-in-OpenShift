@@ -1,0 +1,24 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: my-route
+spec:
+  to:
+    kind: Service
+    name: myapp-service  
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+    key: |
+      -----BEGIN PRIVATE KEY-----
+      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCyvJ8k5Q1b...
+      -----END PRIVATE KEY-----
+    certificate: |
+      -----BEGIN CERTIFICATE-----
+      MIIDdzCCAl+gAwIBAgIEbG9uZzANBgkqhkiG9w0BAQsFADBoMQswCQYDVQQGEwJV...
+      -----END CERTIFICATE-----
+    caCertificate: |
+      -----BEGIN CERTIFICATE-----
+      MIIDdzCCAl+gAwIBAgIEbG9uZzANBgkqhkiG9w0BAQsFADBoMQswCQYDVQQGEwJV...
+      -----END CERTIFICATE----- 
